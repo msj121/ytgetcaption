@@ -1,10 +1,11 @@
-function ytgetCaption(videoID) {
+const defaultUserAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9'
+function ytgetCaption(videoID, userAget = defaultUserAgent) {
     xml2js = require('xml2js');
     axios = require('axios');
 
     return new Promise((resolve, reject) => {
 
-        axios.get('https://youtube.com/get_video_info?video_id=' + videoID)
+        axios.get('https://youtube.com/get_video_info?video_id=' + videoID,{ headers: { 'User-Agent': userAgent }  })
             .then(function (response) {
 
 
